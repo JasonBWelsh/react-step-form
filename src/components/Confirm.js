@@ -5,7 +5,7 @@ import { AppBar, RaisedButton, TextField } from 'material-ui';
 class Confirm extends Component {
   render() {
     const { handleChange, values } = this.props;
-    console.log('DRD __ logging stuff:::', this.props, handleChange, values);
+    console.log('DRD __ linside `Confirm` logging `values`:::', values);
     return (
       <MuiThemeProvider>
         <React.Fragment>
