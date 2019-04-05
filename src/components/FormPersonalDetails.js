@@ -4,6 +4,11 @@ import { AppBar, RaisedButton, TextField } from 'material-ui';
 
 export class FormPersonalDetails extends Component {
 
+    previous = e => {
+      e.preventDefault();
+      this.props.prevStep();
+    };
+
     continue = e => {
       e.preventDefault();
       this.props.nextStep();
@@ -14,7 +19,7 @@ export class FormPersonalDetails extends Component {
         return (
           <MuiThemeProvider >
             <React.Fragment >
-              <AppBar title = "Enter User Details" / >
+              <AppBar title = "Enter Personal Details Details" / >
               <TextField
                 hintText = "Enter Your Occupation"
                 floatingLabelText = "Occupation"
@@ -36,6 +41,12 @@ export class FormPersonalDetails extends Component {
                 defaultValue = { values.bio }
               />
               <br />
+              <RaisedButton
+                label = "Previous"
+                primary = { false }
+                style = { styles.button }
+                onClick = { this.previous }
+              />
               <RaisedButton
                 label = "Continue"
                 primary = { true }
