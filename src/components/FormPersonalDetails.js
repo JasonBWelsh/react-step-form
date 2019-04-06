@@ -44,24 +44,16 @@ export class FormPersonalDetails extends Component {
               <RaisedButton
                 label = "Previous"
                 primary = { false }
-                style = { styles.button }
                 onClick = { this.previous }
               />
               <RaisedButton
                 label = "Continue"
                 primary = { true }
-                style = { styles.button }
                 onClick = { this.continue }
               />
             </React.Fragment >
           </MuiThemeProvider>
         )
-    }
-}
-
-const styles = {
-    button: {
-        margin: 15
     }
 };
 

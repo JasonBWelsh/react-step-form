@@ -3,14 +3,23 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppBar, RaisedButton, TextField } from 'material-ui';
 
 class Confirm extends Component {
+
+  continue = e => {
+    console.log('DRD __ inside `Continue` logging `continue` method');
+    e.preventDefault();
+    this.props.nextStep();
+  };
+
   render() {
     const { handleChange, values } = this.props;
-    console.log('DRD __ linside `Confirm` logging `values`:::', values);
+
     return (
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Confirm or Edit Details">
           </AppBar>
+
+          <h3>Are these details correct?</h3>
 
           <TextField
             hintText = "Enter Your First Name"
@@ -53,6 +62,11 @@ class Confirm extends Component {
             defaultValue = { values.bio }
           />
           <br />
+          <RaisedButton
+            label="Submit"
+            primary={true}
+            onClick={this.continue}
+          />
         </React.Fragment>
       </MuiThemeProvider>
     );

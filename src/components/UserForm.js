@@ -70,7 +70,7 @@ export class UserForm extends Component {
               <Confirm
                 handleChange={this.handleChange}
                 values={values}
-                prevStep={this.prevStep}
+                // prevStep={this.prevStep}
                 nextStep={this.nextStep}
               />
             );
