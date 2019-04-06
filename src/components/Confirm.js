@@ -1,71 +1,64 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { AppBar, RaisedButton, TextField } from 'material-ui';
+import { AppBar, RaisedButton } from 'material-ui';
+import { List, ListItem} from 'material-ui/List';
 
 class Confirm extends Component {
 
+  previous = e => {
+    e.preventDefault();
+    this.props.prevStep();
+  };
+
   continue = e => {
     e.preventDefault();
+    // PROCESS FORM HERE //
     this.props.nextStep();
   };
 
   render() {
-    const { handleChange, values } = this.props;
-    const styles = {
-      button: {
-        margin: '15px'
-      }
-    };
+    const { values: { firstName, lastName, email, occupation, city, bio } } = this.props;
 
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Confirm or Edit Details">
+          <AppBar title="Confirm User Data">
           </AppBar>
-          <TextField
-            hintText = "Enter Your First Name"
-            floatingLabelText = "First Name"
-            onChange = { handleChange('firstName') }
-            defaultValue = { values.firstName }
-          />
-          <br />
-          <TextField
-            hintText = "Enter Your Last Name"
-            floatingLabelText = "Last Name"
-            onChange = { handleChange('lastName') }
-            defaultValue = { values.lastName }
-          />
-          <br />
-          <TextField
-            hintText = "Enter Your Email"
-            floatingLabelText = "Email"
-            onChange = { handleChange('email') }
-            defaultValue = { values.email }
-          />
-          <br />
-          <TextField
-            hintText = "Enter Your Occupation"
-            floatingLabelText = "Occupation"
-            onChange = { handleChange('occupation') }
-            defaultValue = { values.occupation }
-          />
-          <br />
-          <TextField
-            hintText = "Enter Your Last City"
-            floatingLabelText = "City"
-            onChange = { handleChange('city') }
-            defaultValue = { values.city }
-          />
-          <br />
-          <TextField
-            hintText = "Bio"
-            floatingLabelText = "Bio"
-            onChange = { handleChange('bio') }
-            defaultValue = { values.bio }
-          />
+          <List>
+            <ListItem
+              primaryText="First Name"
+              secondaryText={firstName}
+            />
+            <ListItem
+              primaryText="Last Name"
+              secondaryText={lastName}
+            />
+            <ListItem
+              primaryText="Email"
+              secondaryText={email}
+            />
+            <ListItem
+              primaryText="Occupation"
+              secondaryText={occupation}
+            />
+            <ListItem
+              primaryText="City"
+              secondaryText={city}
+            />
+            <ListItem
+              primaryText="Bio"
+              secondaryText={bio}
+            />
+          </List>
           <br />
           <RaisedButton
-            label="Submit"
+            label="Back"
+            primary={false}
+            style={styles.button}
+            onClick={this.previous}
+          />
+          <RaisedButton
+            label="Confirm & Submit"
             primary={true}
             style={styles.button}
             onClick={this.continue}
@@ -75,6 +68,12 @@ class Confirm extends Component {
       </MuiThemeProvider>
     );
   }
-}
+};
+
+const styles = {
+  button: {
+    margin: '15px'
+  }
+};
 
 export default Confirm;

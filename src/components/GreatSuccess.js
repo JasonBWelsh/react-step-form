@@ -8,8 +8,7 @@ class GreatSuccess extends Component {
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Form Submited" />
-          <div class="success-bg">
-          </div>
+          <h1>Thank you for your submission!</h1>
         </React.Fragment>
       </MuiThemeProvider>
     );

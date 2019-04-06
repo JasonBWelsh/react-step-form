@@ -67,9 +67,8 @@ export class UserForm extends Component {
           case 3:
             return (
               <Confirm
-                handleChange={this.handleChange}
                 values={values}
-                // prevStep={this.prevStep}
+                prevStep={this.prevStep}
                 nextStep={this.nextStep}
               />
             );

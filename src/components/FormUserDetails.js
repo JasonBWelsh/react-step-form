@@ -11,11 +11,6 @@ export class FormUserDetails extends Component {
 
     render() {
         const { values, handleChange } = this.props;
-        const styles = {
-          button: {
-            margin: '15px'
-          }
-        };
 
         return (
           <MuiThemeProvider>
@@ -52,6 +47,12 @@ export class FormUserDetails extends Component {
           </MuiThemeProvider>
         );
     }
+};
+
+const styles = {
+  button: {
+    margin: '15px'
+  }
 };
 
 export default FormUserDetails
