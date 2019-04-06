@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FormUserDetails from './FormUserDetails';
 import FormPersonalDetails from './FormPersonalDetails';
 import Confirm from './Confirm';
+import GreatSuccess from './GreatSuccess';
 
 export class UserForm extends Component {
     state = {
@@ -18,12 +19,10 @@ export class UserForm extends Component {
 
       // Proceed to next step
       nextStep = () => {
-        console.log('DRD __ `nextStep`');
         const { step } = this.state;
         this.setState({
           step: step + 1
         });
-        console.log('DRD __ logging `step`:::', step);
       }
 
       // Return to previous step
@@ -76,7 +75,7 @@ export class UserForm extends Component {
             );
           case 4:
             return (
-              <h1>GreatSuccess</h1>
+              <GreatSuccess />
             );
           default:
             return (

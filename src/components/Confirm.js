@@ -5,22 +5,23 @@ import { AppBar, RaisedButton, TextField } from 'material-ui';
 class Confirm extends Component {
 
   continue = e => {
-    console.log('DRD __ inside `Continue` logging `continue` method');
     e.preventDefault();
     this.props.nextStep();
   };
 
   render() {
     const { handleChange, values } = this.props;
+    const styles = {
+      button: {
+        margin: '15px'
+      }
+    };
 
     return (
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Confirm or Edit Details">
           </AppBar>
-
-          <h3>Are these details correct?</h3>
-
           <TextField
             hintText = "Enter Your First Name"
             floatingLabelText = "First Name"
@@ -41,6 +42,7 @@ class Confirm extends Component {
             onChange = { handleChange('email') }
             defaultValue = { values.email }
           />
+          <br />
           <TextField
             hintText = "Enter Your Occupation"
             floatingLabelText = "Occupation"
@@ -65,8 +67,10 @@ class Confirm extends Component {
           <RaisedButton
             label="Submit"
             primary={true}
+            style={styles.button}
             onClick={this.continue}
           />
+          <br />
         </React.Fragment>
       </MuiThemeProvider>
     );

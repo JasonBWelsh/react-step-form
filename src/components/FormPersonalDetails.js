@@ -16,40 +16,48 @@ export class FormPersonalDetails extends Component {
 
     render() {
         const { values, handleChange } = this.props;
+        const styles = {
+          button: {
+            margin: '15px'
+          }
+        };
+
         return (
-          <MuiThemeProvider >
-            <React.Fragment >
-              <AppBar title = "Enter Personal Details Details" / >
+          <MuiThemeProvider>
+            <React.Fragment>
+              <AppBar title = "Enter Personal Details Details" />
               <TextField
-                hintText = "Enter Your Occupation"
-                floatingLabelText = "Occupation"
-                onChange = { handleChange('occupation') }
-                defaultValue = { values.occupation }
+                hintText="Enter Your Occupation"
+                floatingLabelText="Occupation"
+                onChange={ handleChange('occupation') }
+                defaultValue={ values.occupation }
               />
               <br />
               <TextField
-                hintText = "Enter Your Last City"
-                floatingLabelText = "City"
-                onChange = { handleChange('city') }
-                defaultValue = { values.city }
+                hintText="Enter Your Last City"
+                floatingLabelText="City"
+                onChange={ handleChange('city') }
+                defaultValue={ values.city }
               />
               <br />
               <TextField
-                hintText = "Bio"
-                floatingLabelText = "Bio"
-                onChange = { handleChange('bio') }
-                defaultValue = { values.bio }
+                hintText="Bio"
+                floatingLabelText="Bio"
+                onChange={ handleChange('bio') }
+                defaultValue={ values.bio }
               />
               <br />
               <RaisedButton
-                label = "Previous"
-                primary = { false }
-                onClick = { this.previous }
+                label="Previous"
+                primary={ false }
+                style={styles.button}
+                onClick={ this.previous }
               />
               <RaisedButton
-                label = "Continue"
-                primary = { true }
-                onClick = { this.continue }
+                label="Continue"
+                primary={ true }
+                style={styles.button}
+                onClick={ this.continue }
               />
             </React.Fragment >
           </MuiThemeProvider>
